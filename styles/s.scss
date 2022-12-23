@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+$border: 2px solid rgba(0, 0, 255, 0.229);
+$font: 'Montserrat', sans-serif;
+%flex-subitem {
+    display: flex;
+    justify-content: flex-start;
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+.container {
+    margin-top: 40px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.list {
+    padding-top: 20px;
+    font-family: $font;
+    background-color: white;
+    border-radius: 15px;
+    border: $border;
+    width: 350px;
+    min-height: 700px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.list__item {
+    border: $border;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    list-style-type: none;
+    width: 90%;
+    min-height: 30px;
+    background-color: rgba(0, 0, 255, 0.229);
+    transition: 300ms;
+    &_title {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 20px;
+        font-weight: 700;
+    }
+    &_category {
+        display: flex;
+        justify-content: center;
+        font-weight: 500;
+    }
+    &_price {
+        font-size: 20px;
+        font-family: $font;
+        font-weight: 400;
+    }
+    &:hover {
+        background-color: rgba(6, 6, 68, 0.359);
+    }
+}
+.list__subitem {
+    border-radius: 20px;
+    padding: 20px;
+    display: none;
+    width: 400px;
+    min-height: 400px;
+    border: $border;
+    position:fixed;
+    margin-top: 100px;
+    margin-left: 370px;
+    &_title {
+        @extend %flex-subitem; 
+        font-size: 20px;
+        font-weight: 700;
+    }
+    &_category {
+        @extend %flex-subitem; 
+        font-weight: 500;
+    }
+    &_desc {
+        margin-top: 20px;
+    }
+    &_price {
+        @extend %flex-subitem; 
+        font-family: $font;
+        font-size: 30px;
+        margin-top: 20px;
+        font-weight: 600;
+    }
+    &_thumbnail {
+        margin-top: 70px;
+        width: 75%;
+        margin-left: 12%;
+        border-radius: 20px;
+    }
+}
+button {
+    margin-top: 10px;
+    top: 0;
+    left: 54%;
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    border: $border;
+    background-color: rgba(0, 0, 255, 0.229);
+    border-radius: 5px;
+    transition: 300ms;
+    font-family: $font;
+    &:hover {
+        background-color: rgba(6, 6, 68, 0.359);
+    }
+}
+input {
+    margin-top: 10px;
+    top: 0;
+    left: 41%;
+    margin-right: 20px;
+    width: 100px;
+    height: 18px;
+    position: absolute;
+}
+
