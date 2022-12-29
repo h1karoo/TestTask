@@ -1,3 +1,4 @@
+// Fetch запрос для получения списка товаров
 async function getResponse() {
     let response = await fetch('https://dummyjson.com/products');
     let content = await response.json();
@@ -7,6 +8,7 @@ async function getResponse() {
     let list = document.querySelector('.list')
     list.innerHTML = ''
     let key;
+    // Вывод списка товаров
     for (key in content) {
         list.innerHTML += `
         <li class='list__item' draggable = "true" id = "ufo">
@@ -22,8 +24,8 @@ async function getResponse() {
         <p class = 'list__subitem_price'>Price:${content[key].price}$</p>
         </li>
         `
+        // Реализация дополнительной панели с описанием каждого товара
         var links = document.getElementsByClassName('list__item');
-
 for (let i = 0; i < links.length; i++) {
     links[i].onmouseover = function() {
         var tooltip = document.getElementsByClassName('list__subitem');

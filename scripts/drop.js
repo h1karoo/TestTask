@@ -1,3 +1,4 @@
+// Реализация функции DragNDrop
 function dragNdrop() {
     const tasksListElement = document.querySelector('.list');
 const taskElements = tasksListElement.querySelectorAll('.list__item');
@@ -6,10 +7,12 @@ for (const task of taskElements) {
   task.draggable = true;
 }
 
+// Слушатель события когда начинаем перетаскивание элемента
 tasksListElement.addEventListener(`dragstart`, (evt) => {
   evt.target.classList.add(`selected`);
 });
 
+// Слушатель события когда отпускаем элемент
 tasksListElement.addEventListener(`dragend`, (evt) => {
   evt.target.classList.remove(`selected`);
 });
@@ -25,6 +28,7 @@ const getNextElement = (cursorPosition, currentElement) => {
   return nextElement;
 };
 
+// Слушатель события когда уводим элемент с его начального положения
 tasksListElement.addEventListener(`dragover`, (evt) => {
   evt.preventDefault();
   
