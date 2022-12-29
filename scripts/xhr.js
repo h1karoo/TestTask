@@ -1,14 +1,42 @@
-// Fetch запрос для получения списка товаров
+// Функция для получения списка товаров и их сортировки
 async function getResponse() {
+    // Fetch запрос для получения списка товаров
     let response = await fetch('https://dummyjson.com/products');
     let content = await response.json();
     var getNum = document.getElementById('get_num').value;
-    content = content.products.splice(0, getNum)
+    content = content.products.splice(0, getNum);
+    let list = document.querySelector('.list');
+    list.innerHTML = '';
 
-    let list = document.querySelector('.list')
-    list.innerHTML = ''
     let key;
-    // Вывод списка товаров
+    showList(content, list);
+    const selectSort = document.querySelector('.select__sort')
+	selectSort.addEventListener('change', evt => {
+        const listItems = document.querySelectorAll('.list__item')
+        const listSubItems = document.querySelectorAll('.list__subitem')
+		const sortBy = evt.target.value
+		//Очищение списка
+        listItems.forEach(item => {
+			item.remove()
+		})
+        // Очистка списка всплывающей панели
+        listSubItems.forEach(item => {
+			item.remove()
+		})
+		//Выбор сортировки
+		if (sortBy === 'default') {
+			content.sort((a, b) => (a.id > b.id ? 1 : -1))
+		} else if (sortBy === 'price') {
+			content.sort((a, b) => (a.price > b.price ? 1 : -1))
+		} else if (sortBy === 'title') {
+			content.sort((a, b) => a[sortBy].localeCompare(b[sortBy]))
+		}
+		//Создание нового списка
+        showList(content, list);
+	})
+}
+// Функция для вывода списка на страницу
+function showList(content, list) {
     for (key in content) {
         list.innerHTML += `
         <li class='list__item' draggable = "true" id = "ufo">
@@ -38,6 +66,5 @@ for (let i = 0; i < links.length; i++) {
         too.style.display = "none";
     }
 }
-    }
-}
+    }}
 getResponse()

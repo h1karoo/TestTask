@@ -9,6 +9,12 @@
 </head>
 <body>
     <input type="number" id="get_num" name="get_num" value = 10 />
+    <h5>Отсортировать элементы</h5>
+    <select class="select__sort">
+        <option value="default">По умолчанию</option>
+        <option value="price">По цене</option>
+        <option value="title">По названию</option>
+    </select>
     <button class="response" onclick="getResponse()">Find</button>
     <div class="container">
         <ul class="list">

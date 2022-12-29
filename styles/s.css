@@ -105,4 +105,11 @@ input {
   height: 18px;
   position: absolute; }
 
+.select__sort {
+  margin-left: 600px; }
+
+h5 {
+  font-family: "Montserrat", sans-serif;
+  margin-left: 600px; }
+
 /*# sourceMappingURL=s.css.map */
